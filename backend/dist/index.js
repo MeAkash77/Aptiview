@@ -16,8 +16,8 @@ const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
     origin: [
         "http://localhost:3000",
-        "https://apti-view.vercel.app",
-        "https://apti-view-seven.vercel.app", // Your actual Vercel URL
+        "https://aptiview-ten.vercel.app/",
+        "https://aptiview-c9nx.onrender.com", // Your actual Vercel URL
         "https://aptiview.onrender.com", // Your backend URL (for health checks)
         process.env.FRONTEND_URL || "http://localhost:3000"
     ],
