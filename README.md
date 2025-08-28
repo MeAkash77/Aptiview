@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🤖 Aptiview</h1>
-  <p><em>Your AI-Powered Interview Platform for Smarter Hiring</em></p>
+  <p>Your AI-Powered Interview Platform for Smarter Hiring</p>
 </div>
 
 <div align="center">
