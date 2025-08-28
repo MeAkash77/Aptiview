@@ -10,39 +10,32 @@ import { clerkMiddleware } from '@clerk/express';
 import { setupWebSocketServer } from './websocketServer';
 
 const app = express();
-
-// -------------------- CORS CONFIG --------------------
 app.use(cors({
   origin: [
     "http://localhost:3000", 
-    "https://aptiview-pi.vercel.app", 
+    "https://apti-view.vercel.app",
+    "https://aptiview-pi.vercel.app", // Your actual Vercel URL
     process.env.FRONTEND_URL || "http://localhost:3000"
   ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
-
-// -------------------- BODY PARSER --------------------
+// Increase body size limits to handle base64-encoded resumes
 app.use(express.json({ limit: process.env.JSON_BODY_LIMIT || '15mb' }));
 app.use(express.urlencoded({ extended: true, limit: process.env.JSON_BODY_LIMIT || '15mb' }));
 
-// -------------------- CLERK AUTH --------------------
+// Configure Clerk middleware with proper environment variables
 app.use(clerkMiddleware({
   publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
   secretKey: process.env.CLERK_SECRET_KEY,
 }));
 
-// -------------------- STATIC FILES --------------------
-app.use('/uploads', express.static(path.join(__dirname, '../uploads'))); // legacy (use ImageKit for new media)
+// Legacy: serve static files from uploads directory (kept for backward compatibility)
+// New media are uploaded to ImageKit and served via CDN URLs
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// -------------------- HEALTH CHECKS --------------------
-// Minimal
-app.get('/ping', (req, res) => {
-  res.status(200).send('pong');
-});
-
-// Basic health
+// Health check endpoint for ping bots and monitoring
 app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
@@ -54,10 +47,12 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Detailed health (DB + WebSocket + Prisma check)
+// Detailed health check with database connectivity test
 app.get('/health/detailed', async (req, res) => {
   try {
-    await prisma.$queryRaw`SELECT 1`; // DB test
+    // Test database connection
+    await prisma.$queryRaw`SELECT 1`;
+    
     res.status(200).json({
       status: 'healthy',
       timestamp: new Date().toISOString(),
@@ -72,7 +67,7 @@ app.get('/health/detailed', async (req, res) => {
       version: '1.0.0'
     });
   } catch (error) {
-    console.error('❌ Detailed health check failed:', error);
+    console.error('Health check failed:', error);
     res.status(503).json({
       status: 'unhealthy',
       timestamp: new Date().toISOString(),
@@ -87,7 +82,12 @@ app.get('/health/detailed', async (req, res) => {
   }
 });
 
-// Env var validation endpoint (for debugging deploys)
+// Simple ping endpoint (minimal response for basic uptime monitoring)
+app.get('/ping', (req, res) => {
+  res.status(200).send('pong');
+});
+
+// Environment check endpoint for debugging deployment issues
 app.get('/env-check', (req, res) => {
   const requiredEnvs = {
     'DATABASE_URL': !!process.env.DATABASE_URL,
@@ -99,11 +99,11 @@ app.get('/env-check', (req, res) => {
     'IMAGEKIT_PRIVATE_KEY': !!process.env.IMAGEKIT_PRIVATE_KEY,
     'IMAGEKIT_URL_ENDPOINT': !!process.env.IMAGEKIT_URL_ENDPOINT
   };
-
+  
   const missingEnvs = Object.entries(requiredEnvs)
-    .filter(([_, value]) => !value)
+    .filter(([key, value]) => !value)
     .map(([key]) => key);
-
+  
   res.json({
     status: missingEnvs.length === 0 ? 'OK' : 'MISSING_ENV_VARS',
     envStatus: requiredEnvs,
@@ -113,24 +113,16 @@ app.get('/env-check', (req, res) => {
   });
 });
 
-// -------------------- API ROUTES --------------------
 app.use('/api/users', userRoutes);
 app.use('/api/interviews', interviewRoutes);
-app.use('/api/health', healthRoutes); // central place for health routes
+app.use('/api/health', healthRoutes);
 
-// -------------------- ERROR HANDLER --------------------
-app.use((err, req, res, next) => {
-  console.error("❌ Unhandled error:", err);
-  res.status(500).json({ error: "Internal Server Error" });
-});
-
-// -------------------- SERVER START --------------------
 const PORT = process.env.PORT || 4000;
+
 const server = app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
 
-// -------------------- WEBSOCKET --------------------
+// Start WebSocket server on the same port as HTTP server
 setupWebSocketServer(server);
-console.log(`🔌 WebSocket server attached to HTTP server on port ${PORT}`);
-
+console.log(`WebSocket server running on port ${PORT}`);
