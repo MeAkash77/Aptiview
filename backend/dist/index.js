@@ -29,18 +29,21 @@ app.use(
 );
 app.use(cookieParser());
 
-// ✅ CORS Setup
+// ✅ CORS Setup (frontend + localhost for dev)
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",            // Local frontend (dev)
-      "https://aptiview-pi.vercel.app",   // Production frontend (Vercel)
+      "http://localhost:3000",            // Local frontend
+      "https://aptiview-pi.vercel.app",   // Deployed frontend
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
+
+// ✅ Preflight handling
+app.options("*", cors());
 
 // ✅ Clerk Middleware
 app.use(
@@ -50,7 +53,7 @@ app.use(
   })
 );
 
-// ✅ Static uploads (legacy)
+// ✅ Static uploads
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // ✅ Health Check
@@ -58,53 +61,11 @@ app.get("/", (req: Request, res: Response) => {
   res.send("🚀 API is running...");
 });
 
-app.get("/health", (req: Request, res: Response) => {
-  res.status(200).json({
-    status: "ok",
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    service: "Aptiview Backend",
-    version: "1.0.0",
-    environment: process.env.NODE_ENV || "development",
-  });
-});
-
-app.get("/health/detailed", async (req: Request, res: Response) => {
-  try {
-    await prisma.$queryRaw`SELECT 1`;
-    res.status(200).json({
-      status: "healthy",
-      timestamp: new Date().toISOString(),
-      uptime: process.uptime(),
-      services: {
-        database: "connected",
-        websocket: "running",
-        server: "running",
-        prisma: "connected",
-      },
-      environment: process.env.NODE_ENV || "development",
-      version: "1.0.0",
-    });
-  } catch (error) {
-    console.error("Health check failed:", error);
-    res.status(503).json({
-      status: "unhealthy",
-      timestamp: new Date().toISOString(),
-      uptime: process.uptime(),
-      services: {
-        database: "disconnected",
-        server: "running",
-      },
-      error: "Database connection failed",
-      environment: process.env.NODE_ENV || "development",
-    });
-  }
-});
-
 app.get("/ping", (req: Request, res: Response) => {
   res.status(200).send("pong");
 });
 
+// ✅ Environment check route
 app.get("/env-check", (req: Request, res: Response) => {
   const requiredEnvs = {
     DATABASE_URL: !!process.env.DATABASE_URL,
