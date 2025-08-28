@@ -1,7 +1,7 @@
 <div align="center">
   <img src="aptiviewlogo.png" alt="Aptiview Logo" width="80" height="80"/>
   <h1>🤖 Aptiview</h1>
-  <p><em>Your AI-Powered Interview Platform for Smarter Hiring</em></p>
+  <p><em>Your AI-Powered Interview Platform for Smart Hiring</em></p>
 </div>
 
 <div align="center">
@@ -24,7 +24,7 @@
 </div>
 
 <p align="center">
-  <strong>🚀 Revolutionizing recruitment with AI-powered voice interviews, analytics, and seamless candidate evaluation</strong>
+  <strong>🚀 Conduct AI-powered voice interviews, track candidates, and streamline hiring processes effortlessly.</strong>
 </p>
 
 <p align="center">
@@ -41,11 +41,10 @@
 - [🎯 Overview](#-overview)
 - [✨ Key Features](#-key-features)
 - [🏗️ System Architecture](#-system-architecture)
-- [🛠️ Tech Stack](#️-tech-stack)
+- [🛠️ Tech Stack](#-tech-stack)
 - [⚡ Quick Start](#-quick-start)
 - [📦 Installation](#-installation)
 - [🚀 Usage](#-usage)
-- [🌐 API Documentation](#-api-documentation)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 - [🙏 Acknowledgments](#-acknowledgments)
@@ -54,15 +53,13 @@
 
 ## 🎯 Overview
 
-**Aptiview** is a comprehensive AI-powered interview platform that enables recruiters to conduct voice-based interviews and obtain detailed candidate insights while offering candidates a seamless interview experience.
-
-### 🌟 Why Choose Aptiview?
+**Aptiview** is a cutting-edge AI interview platform that allows recruiters to conduct voice-based interviews, capture analytics, and streamline candidate evaluation.
 
 <div align="center">
 
-| 🎤 **AI Interviews** | 📊 **Analytics** | 🖥️ **Dashboard** | 🔐 **Secure** |
+| 🎤 **AI Interviews** | 📊 **Smart Analytics** | 🔐 **Secure** | 💼 **Recruiter Dashboard** |
 |:---:|:---:|:---:|:---:|
-| Real-time conversational interviews | Detailed scoring & feedback | Manage jobs & candidates | Role-based access & secure auth |
+| Natural voice interviews with AI | Automated scoring & transcription | JWT auth, secure uploads | Manage jobs, candidates & pipelines |
 
 </div>
 
@@ -70,25 +67,19 @@
 
 ## ✨ Key Features
 
-### For Recruiters
-- Create & manage job postings
-- Set custom AI interview contexts
-- Review candidate interviews with audio & screenshots
-- Access detailed analytics & scoring
-- Manage application pipeline efficiently
+- **AI Voice Interviews** with OpenAI
+- **Real-time Transcription**
+- **Smart Candidate Analytics**
+- **Recruiter Dashboard**
+- **Custom AI Templates**
+- **Audio & Screen Recording**
+- **Role-Based Access Control**
 
-### For Candidates
-- Browse available job opportunities
-- Take AI-powered voice interviews
-- View application status in real-time
-- Complete profile setup easily
+### Screenshots & Placeholders
 
-### AI Interview System
-- Natural conversation flow with follow-up questions
-- Automatic transcription & analysis
-- Performance scoring across multiple criteria
-- Customizable interview templates
-- Screen & audio recording
+![Dashboard Placeholder](https://via.placeholder.com/900x450.png?text=Dashboard)
+![Interview Screen Placeholder](https://via.placeholder.com/900x450.png?text=Interview+Screen)
+![Analytics Placeholder](https://via.placeholder.com/900x450.png?text=Analytics)
 
 ---
 
@@ -96,40 +87,31 @@
 
 <div align="center">
   <img src="aptiview-architecture.png" alt="Aptiview Architecture" width="100%" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
-  <p><em>Scalable, secure, and real-time architecture</em></p>
+  <p><em>Frontend + Backend + Real-time WebSocket integration</em></p>
 </div>
 
-### 🔧 Architecture Highlights
-- **Frontend**: Next.js 14 + TypeScript + Tailwind CSS + Shadcn/ui
-- **Backend**: Node.js + Express + WebSocket
-- **Database**: PostgreSQL with Prisma ORM
+### Components
+
+- **Frontend**: Next.js 14, TypeScript, Tailwind CSS, Shadcn/ui
+- **Backend**: Node.js, Express, WebSocket, Prisma, PostgreSQL
 - **Authentication**: Clerk
-- **AI Services**: OpenAI GPT-4, Whisper, TTS
-- **Deployment**: Vercel (frontend), Render (backend)
+- **AI Integration**: OpenAI GPT-4, Whisper, TTS
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
 <div align="center">
 
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Shadcn/ui](https://img.shields.io/badge/Shadcn_UI-6B46C1?style=for-the-badge)](https://ui.shadcn.com/)
-
-</div>
-
-### Backend
-<div align="center">
-
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge)](https://expressjs.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=prisma&logoColor=white)](https://prisma.io/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
-[![WebSocket](https://img.shields.io/badge/WebSocket-000000?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)](https://prisma.io/)
+[![Clerk](https://img.shields.io/badge/Clerk-FF7F50?style=for-the-badge&logo=clerk&logoColor=white)](https://clerk.com/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
 
 </div>
 
@@ -139,17 +121,12 @@
 
 ### Prerequisites
 - Node.js 18+
-- PostgreSQL database
-- OpenAI API key
+- PostgreSQL
+- OpenAI API Key
 - Clerk account
 
-### 🚀 Setup
+### Setup Backend
 ```bash
-# Clone the repository
-git clone https://github.com/MeAkash77/Aptiview.git
-cd Aptiview
-
-# Backend setup
 cd backend
 npm install
 cp .env.example .env
@@ -158,9 +135,3 @@ npx prisma generate
 npx prisma db push
 npm run dev
 
-# Frontend setup
-cd ../frontend
-npm install
-cp .env.example .env
-# configure environment variables
-npm run dev
