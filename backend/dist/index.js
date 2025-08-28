@@ -29,10 +29,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://apti-view.vercel.app",
-      "https://apti-view-seven.vercel.app",
-      "https://aptiview-ten.vercel.app", // ✅ Your real frontend
-      "https://aptiview.onrender.com",   // backend itself (health checks)
+      " https://aptiview-pi.vercel.app",   // backend itself (health checks)
       process.env.FRONTEND_URL || "http://localhost:3000",
     ],
     credentials: true,
