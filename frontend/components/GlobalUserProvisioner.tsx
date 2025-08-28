@@ -10,6 +10,7 @@ export function GlobalUserProvisioner() {
   useEffect(() => {
     if (!isSignedIn || !user) return;
     let cancelled = false;
+
     async function provision() {
       try {
         const token = await getToken();
@@ -17,17 +18,26 @@ export function GlobalUserProvisioner() {
           console.log("No token available");
           return;
         }
-        const email = user?.primaryEmailAddress?.emailAddress || user?.emailAddresses[0]?.emailAddress;
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000";
+
+        const email =
+          user?.primaryEmailAddress?.emailAddress ||
+          user?.emailAddresses[0]?.emailAddress;
+
+        const backendUrl =
+          process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000";
+
         const body = { email };
+
         const res = await fetch(`${backendUrl}/api/users/provision`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(body),
+          credentials: "include", // ✅ ensures cookies/session are sent
         });
+
         if (!res.ok) {
           const errText = await res.text();
           if (!cancelled) console.error("Provisioning failed:", errText);
@@ -35,9 +45,15 @@ export function GlobalUserProvisioner() {
       } catch (err) {
         if (!cancelled) console.error("Provisioning error:", err);
       }
-      return () => { cancelled = true; };
     }
+
     provision();
+
+    // ✅ proper cleanup on unmount
+    return () => {
+      cancelled = true;
+    };
   }, [isSignedIn, user, getToken]);
+
   return null;
-} 
+}
