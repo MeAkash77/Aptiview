@@ -31,7 +31,7 @@ This project consists of two main components:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Sahnik0/Aptiview.git
+   git clone https://github.com/MeAkash77/Aptiview.git
    cd Aptiview
    ```
 
@@ -179,4 +179,4 @@ For issues and questions:
 
 ---
 
-Built with ❤️ by the Aptiview team
+Built with ❤️ 
