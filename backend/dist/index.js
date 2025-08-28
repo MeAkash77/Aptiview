@@ -21,16 +21,20 @@ const PORT = process.env.PORT || 4000;
 
 // ✅ Middleware
 app.use(express.json({ limit: process.env.JSON_BODY_LIMIT || "15mb" }));
-app.use(express.urlencoded({ extended: true, limit: process.env.JSON_BODY_LIMIT || "15mb" }));
+app.use(
+  express.urlencoded({
+    extended: true,
+    limit: process.env.JSON_BODY_LIMIT || "15mb",
+  })
+);
 app.use(cookieParser());
 
 // ✅ CORS Setup
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
-      "https://aptiview-pi.vercel.app",   // backend itself (health checks)
-      process.env.FRONTEND_URL || "http://localhost:3000",
+      "http://localhost:3000",            // Local frontend (dev)
+      "https://aptiview-pi.vercel.app",   // Production frontend (Vercel)
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -142,4 +146,3 @@ const server = app.listen(PORT, () => {
 // ✅ WebSocket
 setupWebSocketServer(server);
 console.log(`🔌 WebSocket server running on port ${PORT}`);
-
