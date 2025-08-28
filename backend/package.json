@@ -1,16 +1,23 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Aptiview Backend",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "npx prisma generate && tsc",
+    "start": "node dist/index.js",
+    "postinstall": "npx prisma generate",
+    "render-build": "bash ./render-build.sh",
+    "seed": "ts-node prisma/seed.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@clerk/clerk-sdk-node": "^4.13.23",
     "@clerk/express": "^1.7.8",
     "@prisma/client": "^6.12.0",
     "@prisma/extension-accelerate": "^2.0.2",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/nodemailer": "^6.4.17",
-    "@types/pdf-parse": "^1.1.5",
-    "@types/uuid": "^10.0.0",
-    "@types/ws": "^8.18.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
@@ -21,26 +28,24 @@
     "openai": "^5.10.0",
     "pdf-parse": "^1.1.1",
     "prisma": "^6.12.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
     "uuid": "^11.1.0",
     "ws": "^8.18.3"
   },
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node src/index.ts",
-    "build": "npx prisma generate && tsc",
-    "start": "node dist/index.js",
-    "postinstall": "npx prisma generate",
-    "render-build": "bash ./render-build.sh"
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/nodemailer": "^6.4.17",
+    "@types/pdf-parse": "^1.1.5",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.18.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {}
+  "license": "ISC"
 }

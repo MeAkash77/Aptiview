@@ -48,12 +48,18 @@ CREATE TABLE "Job" (
     "recruiterId" TEXT NOT NULL,
     "interviewContext" TEXT,
     "customQuestions" TEXT,
+    "aiTemplateId" TEXT,
+    "customInterviewContext" TEXT,
+    "customQuestionsList" TEXT[] DEFAULT ARRAY[]::TEXT[],
+    "scoringWeights" JSONB,
+    "interviewDuration" INTEGER DEFAULT 20,
+    "difficultyLevel" TEXT DEFAULT 'intermediate',
     "interviewEndDate" TIMESTAMP(3),
     "screenshotInterval" INTEGER NOT NULL DEFAULT 30,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "location" TEXT NOT NULL,
     "type" TEXT NOT NULL,
-    "deadline" TIMESTAMP(3),
 
     CONSTRAINT "Job_pkey" PRIMARY KEY ("id")
 );
@@ -74,6 +80,8 @@ CREATE TABLE "Application" (
     "candidateId" TEXT NOT NULL,
     "jobId" TEXT NOT NULL,
     "status" "ApplicationStatus" NOT NULL DEFAULT 'PENDING',
+    "resumeUrl" TEXT,
+    "coverLetter" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Application_pkey" PRIMARY KEY ("id")
