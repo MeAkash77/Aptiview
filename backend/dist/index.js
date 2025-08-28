@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 import path from "path";
 import cookieParser from "cookie-parser";
 import { clerkMiddleware } from "@clerk/express";
@@ -29,21 +29,33 @@ app.use(
 );
 app.use(cookieParser());
 
-// ✅ CORS Setup (frontend + localhost for dev)
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",            // Local frontend (dev)
-      "https://aptiview-pi.vercel.app",   // Deployed frontend
-    ],
-    credentials: true, // allow cookies/auth headers
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-  })
-);
+// ✅ Allowed Origins
+const allowedOrigins = [
+  "http://localhost:3000",            // Local frontend (dev)
+  "https://aptiview-pi.vercel.app",   // Deployed frontend
+];
 
-// ✅ Preflight requests (important for CORS)
-app.options("*", cors());
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
+// ✅ CORS Options
+const corsOptions: CorsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, origin); // Allow the requesting origin
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // allow cookies/auth headers
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+};
+
+// ✅ Apply CORS globally
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Preflight requests
 
 // ✅ Clerk Middleware
 app.use(
