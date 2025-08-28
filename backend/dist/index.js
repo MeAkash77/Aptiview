@@ -33,16 +33,16 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",            // Local frontend
+      "http://localhost:3000",            // Local frontend (dev)
       "https://aptiview-pi.vercel.app",   // Deployed frontend
     ],
-    credentials: true,
+    credentials: true, // allow cookies/auth headers
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
 
-// ✅ Preflight handling
+// ✅ Preflight requests (important for CORS)
 app.options("*", cors());
 
 // ✅ Clerk Middleware
