@@ -340,3 +340,77 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ### 📜 License Summary
 
 
+**🎉 What this means:**
+- ✅ **Commercial use** - Use it in your business
+- ✅ **Modification** - Change it to fit your needs  
+- ✅ **Distribution** - Share it with others
+- ✅ **Private use** - Use it for personal projects
+
+---
+
+## 🙏 Acknowledgments
+
+We're grateful to the amazing community and technologies that make Aptiview possible:
+
+### 🌟 Special Thanks
+
+- **🎓 Recruiters & Candidates Worldwide** - For trusting Aptiview with their hiring journey
+- **👨‍💻 Open Source Community** - For the incredible tools and libraries
+- **🏫 Organizations & Institutions** - For feedback and partnership opportunities
+- **🤝 Contributors** - For making Aptiview better every day
+
+### 🛠️ Built With Amazing Technologies
+
+<div align="center">
+
+**Frontend Ecosystem**
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+**Backend & Database**
+[![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com/)
+[![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=flat-square&logo=Firebase&logoColor=white)](https://firebase.google.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)](https://supabase.com/)
+
+</div>
+
+### 🎯 Inspiration
+
+> *"Education is the most powerful weapon which you can use to change the world."* - Nelson Mandela
+
+Aptiview AI-Powered Interview Platform was born from the belief that technology should democratize hiring and make quality recruitment tools accessible to every organization, regardless of size or location.
+
+---
+
+<div align="center">
+
+### 🌟 **Star History**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Hari-hara7/Aptiview&type=Date)](https://star-history.com/#Hari-hara7/Aptiview&Date)
+
+</div>
+
+---
+
+<div align="center">
+  <h2>🚀 Ready to Transform Your Hiring Process?</h2>
+  <p><strong>Join thousands of recruiters already using Aptiview!</strong></p>
+  
+  [![Try Aptiview](https://img.shields.io/badge/🌐_Try_Aptiview_Now-FF6B6B?style=for-the-badge&logoColor=white)](https://www.aptiview.ai)
+  [![Give it a Star](https://img.shields.io/badge/⭐_Give_it_a_Star-FFD700?style=for-the-badge&logoColor=black)](https://github.com/MeAkash77/Aptiview/stargazers)
+  
+  <p><em>Made with 💖 for recruiters and candidates</em></p>
+  <p><strong>Aptiview – Because hiring should be smart, fair, and stress-free.</strong></p>
+</div>
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ using <a href="https://nextjs.org/">Next.js</a> • <a href="https://www.typescriptlang.org/">TypeScript</a> • <a href="https://tailwindcss.com/">Tailwind CSS</a> • <a href="https://flask.palletsprojects.com/">Flask</a></sub>
+</div>
+
+
+
