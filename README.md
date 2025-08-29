@@ -148,7 +148,11 @@
 ---
 
 ### 🎤 Candidate Interview Screen  
-<img src="screenshots/interview.png" alt="Candidate Interview Screen" width="80%" style="border-radius: 10px;"/>
+<img width="950" height="445" alt="Image" src="https://github.com/user-attachments/assets/07326e1a-88f9-401e-9331-3b441c04e6f3" />
+
+<img width="952" height="440" alt="Image" src="https://github.com/user-attachments/assets/405220c3-f38c-4d69-be16-82c7c4a1d273" />
+
+<img width="949" height="445" alt="Image" src="https://github.com/user-attachments/assets/ba78b91a-957a-48f0-85ab-9d9dfaf05f6c" />
 
 ---
 
