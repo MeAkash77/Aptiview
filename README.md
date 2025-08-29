@@ -1,5 +1,6 @@
 <div align="center">  
-  <img src="aptiviewlogo.png" alt="Aptiview Logo" width="90" height="90"/>
+  <img src="<img width="500" height="500" alt="rI - Copy" src="https://github.com/user-attachments/assets/63189670-f72f-487a-9bd0-c7be2c79cffd" />
+" alt="Aptiview Logo" width="90" height="90"/>
   <h1>🤖 Aptiview - AI-Powered Interview Platform</h1>
   <p><em>Your AI-driven companion for smarter, fairer, and more efficient interviews</em></p>
 </div>
