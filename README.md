@@ -168,6 +168,7 @@ WS --> UI
 
 ### 🏠 Landing Page  
 <img width="950" height="443" alt="Image" src="https://github.com/user-attachments/assets/100b24a3-7bcc-44f6-8774-8a4f6d9c7dfe" />
+
 ---
 
 ### 👨‍💼 Recruiter Dashboard  
@@ -180,9 +181,8 @@ WS --> UI
 
 ---
 
-### 📊 Analytics & Reports  
-<img src="screenshots/analytics.png" alt="Analytics Dashboard" width="80%" style="border-radius: 10px;"/>
-
+### 📊 Features  
+<img width="951" height="445" alt="Image" src="https://github.com/user-attachments/assets/e19dc87f-1847-4f37-a6af-e8443175e8a3" />
 </div>
 
 ---
@@ -190,7 +190,7 @@ WS --> UI
 ## 🎥 Demo Video
 <div align="center">
   
-[![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo_Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=YOUR_DEMO_LINK)
+[![Watch Demo](https://img.shields.io/badge/▶️_Watch_Demo_Video-red?style=for-the-badge&logo=youtube)](https://drive.google.com/file/d/19_1dYetqw_Swwi9f5tm9GRYny7yroxJP/view?usp=drivesdk)
 
 </div>
 
