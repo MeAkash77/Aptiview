@@ -95,6 +95,9 @@
 
 ---
 
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/e2a2618a-4a71-4437-bea1-cd3b4770aefb" />
+
+---
 
 ### Highlights
 - **Frontend**: Next.js (App Router) + Tailwind + Shadcn  
