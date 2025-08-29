@@ -163,16 +163,6 @@ WS --> UI
 - Clerk account  
 - OpenAI API Key  
 
-### Setup
-
-# Clone the repository
-git clone https://github.com/MeAkash77/Aptiview.git
-cd Aptiview
-
-
-
-
-
 ## 📸 Screenshots & Demo
 <div align="center">
 
@@ -181,7 +171,7 @@ cd Aptiview
 ---
 
 ### 👨‍💼 Recruiter Dashboard  
-<img src="screenshots/dashboard.png" alt="Recruiter Dashboard" width="80%" style="border-radius: 10px;"/>
+<img width="947" height="442" alt="Image" src="https://github.com/user-attachments/assets/36e9a630-e7fe-43d0-90f0-1a0b6fa45abb" />
 
 ---
 
