@@ -88,41 +88,8 @@
 ---
 
 ## 🏗️ System Architecture
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/e9b821a2-85bd-4cb1-a256-eb76b897650f" />
 
-flowchart TB
-
-subgraph Frontend[Frontend - Next.js (React, Tailwind)]
-  UI[Candidate & Recruiter UI]
-  Clerk[Clerk Auth]
-end
-
-subgraph Backend[Backend - Node.js/Express]
-  API[REST API Endpoints]
-  WS[WebSocket Server]
-  Prisma[Prisma ORM]
-end
-
-subgraph DB[Database Layer]
-  Postgres[(PostgreSQL)]
-end
-
-subgraph AI[AI Services]
-  GPT[OpenAI GPT-4 -> Dynamic Q&A]
-  Whisper[OpenAI Whisper -> Speech-to-Text]
-end
-
-User[👩‍💻 Candidate/Recruiter] -->|Login/Register| Clerk
-User -->|Apply/Interview| UI
-
-UI -->|API Calls| API
-UI -->|Realtime Updates| WS
-
-API --> Prisma --> Postgres
-
-API -->|Send Transcript| Whisper
-API -->|Request AI Q&A| GPT
-
-WS --> UI
 
 
 
