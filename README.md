@@ -1,5 +1,5 @@
 <div align="center">  
-    <img src="https://github.com/MeAkash77/Aptiview/blob/main/rI.png?raw=true"/>
+    <img src="https://github.com/MeAkash77/Aptiview-AI-Powered-Interview-Platform/blob/main/f1f7b70e-748d-4c86-98d4-2b724d2c0b4f.png?raw=true"/>
   <h1>🤖 Aptiview - AI-Powered Interview Platform</h1>
   <p>Your AI-driven companion for smarter, fairer, and more efficient interviews</p>
 </div>
