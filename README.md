@@ -177,8 +177,7 @@ cd Aptiview
 <div align="center">
 
 ### 🏠 Landing Page  
-<img src="screenshots/landing.png" alt="Landing Page" width="80%" style="border-radius: 10px;"/>
-
+<img width="950" height="443" alt="Image" src="https://github.com/user-attachments/assets/100b24a3-7bcc-44f6-8774-8a4f6d9c7dfe" />
 ---
 
 ### 👨‍💼 Recruiter Dashboard  
