@@ -90,9 +90,10 @@
 ## 🏗️ System Architecture
 <img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/e9b821a2-85bd-4cb1-a256-eb76b897650f" />
 
+---
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/2c785ccb-b675-4b06-9416-6db49e165174" />
 
-
-
+---
 
 
 ### Highlights
