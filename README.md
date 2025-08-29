@@ -89,9 +89,44 @@
 
 ## 🏗️ System Architecture
 
-<div align="center">
-  <img src="aptiview-architecture.png" alt="Aptiview Architecture" width="100%" style="border-radius: 10px;"/>
-</div>
+flowchart TB
+
+subgraph Frontend[Frontend - Next.js (React, Tailwind)]
+  UI[Candidate & Recruiter UI]
+  Clerk[Clerk Auth]
+end
+
+subgraph Backend[Backend - Node.js/Express]
+  API[REST API Endpoints]
+  WS[WebSocket Server]
+  Prisma[Prisma ORM]
+end
+
+subgraph DB[Database Layer]
+  Postgres[(PostgreSQL)]
+end
+
+subgraph AI[AI Services]
+  GPT[OpenAI GPT-4 -> Dynamic Q&A]
+  Whisper[OpenAI Whisper -> Speech-to-Text]
+end
+
+User[👩‍💻 Candidate/Recruiter] -->|Login/Register| Clerk
+User -->|Apply/Interview| UI
+
+UI -->|API Calls| API
+UI -->|Realtime Updates| WS
+
+API --> Prisma --> Postgres
+
+API -->|Send Transcript| Whisper
+API -->|Request AI Q&A| GPT
+
+WS --> UI
+
+
+
+
 
 ### Highlights
 - **Frontend**: Next.js (App Router) + Tailwind + Shadcn  
